@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR</title>
+</head>
+
+<body>
+    <input id="myUI"><br>
+    <button onclick="myUI.value += '1'">1</button>
+    <button onclick="myUI.value += '2'">2</button>
+    <button onclick="myUI.value += '3'">3</button>
+    <button onclick="funP()">+</button>
+    <button onclick="myUI.value = '' ">C</button><br>
+    <button onclick="myUI.value += '4'">4</button>
+    <button onclick="myUI.value += '5'">5</button>
+    <button onclick="myUI.value += '6'">6</button>
+    <button onclick="funS()">-</button>
+    <button onclick="DL()">D</button><br>
+    <button onclick="myUI.value += '7'">7</button>
+    <button onclick="myUI.value += '8'">8</button>
+    <button onclick="myUI.value += '9'">9</button>
+    <button onclick="funM()">* </button><br>
+    <button onclick="myUI.value += '0'">0</button>
+    <button onclick="myUI.value += '.'">.</button>
+    <button onclick="funI()">=</button>
+    <button onclick="funD()">/</button><br>
+</body>
+<script>
+
+    let funP = () => calc("+");
+    let funS = () => calc("-");
+    let funM = () => calc("*");
+    let funD = () => calc("/");
+
+    let DL = () => {
+        let val = document.getElementById("myUI").value
+        val = val.slice(0, -1)
+        document.getElementById("myUI").value = val
+    }
+
+    let count = 0
+
+    function calc(sign) {
+        count++;
+        console.log("count", count)
+        if (count > 1) {
+            funI()
+            document.getElementById("myUI").value += sign
+        } else {
+            document.getElementById("myUI").value += sign
+        }
+    }
+
+    let funI = () => document.getElementById("myUI").value = eval(document.getElementById("myUI").value)
+
+    // function cal(val, sign) {
+    //     var a = val.split(sign)
+    //     a = a.map(function (x) {
+    //         return parseInt(x, 10);
+    //     });
+    //     let ans = a.reduce((p, c) => p + c)
+    //     console.log("ans", ans)
+    //     document.getElementById("myUI").innerHTML = ans
+    // }
+    
+</script>
+
+</html>

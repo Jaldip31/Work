@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div id="myDIV" class="header">
+        <h2>My To Do List</h2>
+        <input type="text" id="myInput" placeholder="...">
+        <button onclick="add()" class="add">Add </button>
+    </div>
+    <ul id="myUL">
+
+    </ul>
+    
+</body>
+
+<script>
+    function add(){
+        const myInput = document.getElementById("myInput").value
+        console.log(myInput)
+        let toDOList = localStorage.getItem("myNote");
+        console.log(toDOList)
+
+        let arr = [];
+        if(toDOList){
+            arr = JSON.parse(toDOList)
+        }
+        arr.push(myInput)
+        localStorage.setItem("myNote",JSON.stringify(arr))
+    }
+    function show(){
+        let toDOList = localStorage.getItem("myNote");
+    }
+    
+  
+</script>
+
+</html>
