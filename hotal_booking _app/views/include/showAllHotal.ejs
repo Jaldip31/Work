@@ -1,0 +1,32 @@
+<%for(var i=0;i<hotalArr.length;i++){ %>
+    <tr>
+        <td>
+            <%=i+1%>
+        </td>
+        <td>
+            <%=hotalArr[i].hotal_name%>
+        </td>
+        <td>
+            <%=hotalArr[i].location%>
+        </td>
+        <td>
+            <%=hotalArr[i].rooms.total_room%>
+        </td>
+        <td>
+            <%=hotalArr[i].rooms.booked_room%>
+        </td>
+        <td>
+            <%=hotalArr[i].rooms.available_room%>
+        </td>
+        <td>
+            <a href="/user/addUser?id=<%=hotalArr[i]._id%>">
+                <span><input type="button" value="Book room"></span>
+            </a>
+        </td>
+        <!-- <td>
+            <a href="/cou/DELETE_COURSE?cid=<%=hotalArr[i]._id%>">
+                <span><input type="button" value="delete"></span>
+            </a>
+        </td> -->
+    </tr>
+    <%}%>
